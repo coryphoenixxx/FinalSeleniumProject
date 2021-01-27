@@ -2,6 +2,7 @@ import math
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from .locators import MainPageLocators
 
 
 
@@ -49,3 +50,7 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def go_to_basket(self):
+        btn = self.browser.find_element(*MainPageLocators.BASKET_BUTTON)
+        btn.click()
